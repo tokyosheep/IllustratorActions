@@ -9,5 +9,3 @@ Illustrator上のscriptでactionを生成して実行する流れをオブジェ
 反転
 塗りつぶしの色変更
 線の色変更
-
-<script src="https://gist.github.com/tokyosheep/305c9c38aa03025633854ee0af1547e2.js"></script>
