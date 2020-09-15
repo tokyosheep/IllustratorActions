@@ -1,17 +1,63 @@
 # IllustratorActions
 
-Illustrator上のscriptでactionを生成して実行する流れをオブジェクト、メソッド化して簡素化。
-コンストラクトオブジェクトにアクションの種類とオプションを渡してlaunchActionメソッドでアクションを実行。
-現在対応しているアクションは
-リサイズ
-回転
-移動
-反転
-塗りつぶしの色変更
-線の色変更
+this script generates action for Illustrator like..
 
-具体的には
-var fill = new CreateAction(filloutActionRGB,{red:20,green:100,blue:220});
-とインスタンスを生成、後は
+resize
+rotate
+reflect
+fillOut color
+stroke color
+
+
+you just pass argument action function and option
+
+for example
+var fill = new CreateAction(filloutActionRGB,{red:20,green:100,blue:220});//create action object
+fill.launchAction();//excute action
+the action fill out color on path item you select
+
+all of actions are blow
+
+
+var resize = new CreateAction(moveAction,{x:100,y:30,copy:false});
+resize.launchAction();
+
+resize item you select 
+pass option as a object
+x how move on x axis
+y how move omn y axis
+copy boolean , copy or not
+
+var fill = new CreateAction(filloutActionCMYK,{cyan:30,magenta:100,yellow:10,black:10});
 fill.launchAction();
-でアクション実行
+change fill CMKY color on path item
+pass color as a object
+cyan magenta yellow black
+
+var fill = new CreateAction(filloutActionRGB,{red:20,green:100,blue:220});
+fill.launchAction();
+change fill RGB color on path item
+pass color as a object
+red green blue
+
+var stroke = new CreateAction(strokedColorCMYK,{cyan:80,magenta:10,yellow:10,black:10});
+stroke.launchAction();
+change stroke CMYK color on path item
+pass color as a object
+cyan magenta yellow black
+
+var stroke = new CreateAction(strokedColorRGB,{red:0,green:0,blue:200});
+stroke.launchAction();
+change stroke RGB color on path item
+pass color as a object
+red green blue
+
+var rotate = new CreateAction(rotate,180);
+rotate.launchAction();
+rotate item 
+pass option degree as a number value 
+
+var reflect = new CreateAction(reflect);
+reflect.launchAction();
+just reflect item
+nothing any option
