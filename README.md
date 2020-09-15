@@ -61,3 +61,19 @@ var reflect = new CreateAction(reflect);
 reflect.launchAction();
 just reflect item
 nothing any option
+
+
+before use it, include these acripts
+#include "./actionCommon.jsx"
+#include "./actions.jsx";
+#include "./strokeAndActon.jsx";
+#include "./createAction.jsx";
+
+on CEP , 
+
+const csInterface = new CSInterface();
+const extensionRoot = csInterface.getSystemPath(SystemPath.EXTENSION) +`/jsx/`;
+csInterface.evalScript(`$.evalFile("${extensionRoot}actionCommon.js")`);
+csInterface.evalScript(`$.evalFile("${extensionRoot}actions.js")`);
+csInterface.evalScript(`$.evalFile("${extensionRoot}strokeAndActon.js")`);
+csInterface.evalScript(`$.evalFile("${extensionRoot}createAction.js")`);
