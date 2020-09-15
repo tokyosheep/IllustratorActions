@@ -57,8 +57,8 @@ rotate.launchAction();
 rotate item 
 pass option degree as a number value 
 
-var reflect = new CreateAction(reflect);
-reflect.launchAction();
+var refl = new CreateAction(inverseItem);
+refl.launchAction();
 just reflect item
 nothing any option
 

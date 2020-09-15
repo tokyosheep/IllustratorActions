@@ -174,7 +174,7 @@ function rotate(name,set,deg){
 	return rAction;
 }
 
-function mirror(name,set){
+function inverseItem(name,set){
 	var reverse = [
 		"/version 3",
 		"/name [ " + set.length,//actionの名前と名前の文字列数
