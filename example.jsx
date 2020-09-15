@@ -21,8 +21,8 @@
     */
 
     /*
-    var reflect = new CreateAction(reflect);
-    reflect.launchAction();
+    var refl = new CreateAction(mirror);
+    refl.launchAction();
     */
     /*
     var stroke = new CreateAction(strokedColorCMYK,{cyan:80,magenta:10,yellow:10,black:10});
