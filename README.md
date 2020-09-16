@@ -52,8 +52,8 @@ change stroke RGB color on path item
 pass color as a object
 red green blue
 
-var rotate = new CreateAction(rotate,180);
-rotate.launchAction();
+var rotateObj = new CreateAction(rotate,180);
+rotateObj.launchAction();
 rotate item 
 pass option degree as a number value 
 
