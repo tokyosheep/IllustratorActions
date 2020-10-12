@@ -9,3 +9,8 @@ function zeroTail(num){
 	}
 	return num;
 }
+
+function turnBoolean(value){
+	if(value===true||!isNaN(value)||value>0)return 1;
+	return 0;
+}

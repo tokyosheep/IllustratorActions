@@ -72,7 +72,7 @@ function moveAction(name,set,obj){
 	var x = isNaN(obj.x) ? null : obj.x;
 	var y = isNaN(obj.y) ? null : obj.y;
 	if(copy===false||x===null||y===null){
-		alert("value is invalid");
+		alert("the value is invalid");
 		return null;
 	}
 	var moveAction = [
@@ -128,7 +128,10 @@ function moveAction(name,set,obj){
 }
 
 function rotate(name,set,deg){
-	if(isNaN(deg))return null;
+	if(isNaN(deg)){
+		alert("the value is invalid");
+		return null;
+	}
 	const rAction = [
 		"/version 3",
 		"/name [ " + set.length,//actionの名前と名前の文字列数
@@ -218,4 +221,185 @@ function inverseItem(name,set){
 		"}",
 		].join("\n");  
 	return reverse;
+}
+
+function expandObject(name,set){
+	var isFill = 1;
+	var isLine = 1;
+	expandFill
+	var expandAction = ["/version 3",
+"/name [ "+set.length,
+	ascii2Hex (set),
+"]",
+"/isOpen 1",
+"/actionCount 1",
+"/action-1 {",
+	"/name [ "+ name.length,
+		ascii2Hex (name),
+	"]",
+	"/keyIndex 0",
+	"/colorIndex 0",
+	"/isOpen 1",
+	"/eventCount 1",
+	"/event-1 {",
+		"/useRulersIn1stQuadrant 0",
+		"/internalName (ai_plugin_expand)",
+		"/localizedName [ 15",
+			"e58886e589b2e383bbe68ba1e5bcb5",
+		"]",
+		"/isOpen 0",
+		"/isOn 1",
+		"/hasDialog 1",
+		"/showDialog 0",
+		"/parameterCount 4",
+		"/parameter-1 {",
+			"/key 1868720756",
+			"/showInPalette 4294967295",
+			"/type (boolean)",
+			"/value 1",/*オブジェクトの分割*/
+		"}",
+		"/parameter-2 {",
+			"/key 1718185068",
+			"/showInPalette 4294967295",
+			"/type (boolean)",
+			"/value "+isFill,//塗りを分割
+		"}",
+		"/parameter-3 {",
+			"/key 1937011307",
+			"/showInPalette 4294967295",
+			"/type (boolean)",
+			"/value "+isLine,//線を分割
+		"}",
+		"/parameter-4 {",
+			"/key 1936553064",
+			"/showInPalette 4294967295",
+			"/type (boolean)",
+			"/value 0",//グラデーションメッシュ
+		"}",
+	"}",
+"}"].join("\n");
+return expandAction;
+}
+
+function expandGradient(name,set,gradientPattern,Dialog){
+	if(isNaN(gradientPattern)||gradientPattern < 1){
+		alert("the value is invalid");
+		return null;
+	}
+	var showPalette = turnBoolean(Dialog);
+	var expandG = ["/version 3",
+		"/name [ "+set.length,
+			ascii2Hex (set),
+		"]",
+		"/isOpen 1",
+		"/actionCount 1",
+		"/action-1 {",
+		"/name [ "+ name.length,
+			ascii2Hex (name),
+		"]",
+		"/keyIndex 0",
+		"/colorIndex 0",
+		"/isOpen 1",
+		"/eventCount 1",
+		"/event-1 {",
+			"/useRulersIn1stQuadrant 0",
+			"/internalName (ai_plugin_expand)",
+			"/localizedName [ 15",
+				"e58886e589b2e383bbe68ba1e5bcb5",
+			"]",
+			"/isOpen 0",
+			"/isOn 1",
+			"/hasDialog 1",
+			"/showDialog "+showPalette,//ダイアログ
+			"/parameterCount 5",
+			"/parameter-1 {",
+				"/key 1868720756",
+				"/showInPalette 4294967295",
+				"/type (boolean)",
+				"/value 0",/*オブジェクトの分割*/
+			"}",
+			"/parameter-2 {",
+				"/key 1718185068",
+				"/showInPalette 4294967295",
+				"/type (boolean)",
+				"/value 1",//塗りを分割
+			"}",
+			"/parameter-3 {",
+				"/key 1937011307",
+				"/showInPalette 4294967295",
+				"/type (boolean)",
+				"/value 1",//線を分割
+			"}",
+			"/parameter-4 {",
+				"/key 1936553064",
+				"/showInPalette 4294967295",
+				"/type (boolean)",
+				"/value 0",//グラデーションメッシュ
+			"}",
+			"/parameter-5 {",
+				"/key 1937007984",
+				"/showInPalette 4294967295",
+				"/type (integer)",
+				"/value "+gradientPattern,//グラデーション分割数
+			"}",
+		"}",
+	"}"
+	].join("\n");
+	return expandG;
+}
+
+function expandGradientMesh(name,set){
+	var meshObj = ["/version 3",
+		"/name [ "+set.length,
+			ascii2Hex (set),
+		"]",
+		"/isOpen 1",
+		"/actionCount 1",
+	"/action-1 {",
+		"/name [ "+ name.length,
+			ascii2Hex (name),
+		"]",
+		"/keyIndex 0",
+		"/colorIndex 0",
+		"/isOpen 1",
+		"/eventCount 1",
+		"/event-1 {",
+			"/useRulersIn1stQuadrant 0",
+			"/internalName (ai_plugin_expand)",
+			"/localizedName [ 15",
+				"e58886e589b2e383bbe68ba1e5bcb5",
+			"]",
+			"/isOpen 0",
+			"/isOn 1",
+			"/hasDialog 1",
+			"/showDialog 0",
+			"/parameterCount 4",
+			"/parameter-1 {",
+				"/key 1868720756",
+				"/showInPalette 4294967295",
+				"/type (boolean)",
+				"/value 0",
+			"}",
+			"/parameter-2 {",
+				"/key 1718185068",
+				"/showInPalette 4294967295",
+				"/type (boolean)",
+				"/value 1",
+			"}",
+			"/parameter-3 {",
+				"/key 1937011307",
+				"/showInPalette 4294967295",
+				"/type (boolean)",
+				"/value 1",
+			"}",
+			"/parameter-4 {",
+				"/key 1936553064",
+				"/showInPalette 4294967295",
+				"/type (boolean)",
+				"/value 1",
+			"}",
+		"}",
+	"}"
+	].join("\n");
+	return meshObj;
 }
